@@ -6,7 +6,6 @@ from googletrans import Translator  #To import translator from googletrans modul
 import pyttsx3                      #To import pyttsx(text-to-speech conversion library in python) module -> text speaker
 from tkinter import *               #To import every thing from tkinter module
 from tkinter import messagebox      #To import messagebox from tkinter module
-import os                           #To import os for opening the file
 root=Tk()                           #To set a root window
 root.geometry("800x450")            #To set the geometery of the root window
 root.title("Translator")            #To set a title for the root window
