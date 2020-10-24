@@ -14,8 +14,9 @@ root.iconbitmap(r'2.ico')           #To set icon for the root window
 #Creating variables:
 en=StringVar()
 i=IntVar()
+dt=StringVar()
 #Creating and accesing database:
-mydb=mysql.connector.connect(host="localhost",user="root",passwd="*******",database="translator")             #To connect program with database
+mydb=mysql.connector.connect(host="localhost",user="root",passwd="reyaz2727",database="translator")             #To connect program with database
 mycursor=mydb.cursor()                                                                                          #For accessing the database
 #mycursor.execute("create database Translator")                                                 #To create a new database
 #mycursor.execute("create table Words (Enteredtext varchar(500),Translatedtext varchar(500))")  #To create a table in the database with two columns
@@ -117,7 +118,7 @@ def clr():
     ety.delete(0,"end")
 #For clearing the text in the entry box,text box,output box:
 def cla():
-    ans=messagebox.askquestion("Confirm Clear", "It clears the 'Copied Text' \n But don't worry the text will be stored in the File(Text.txt)")
+    ans=messagebox.askquestion("Confirm Clear", "It clears the 'Saved Data' \n But don't worry the Data is stored")
     if ans=="yes":
         ety.delete(0,"end")
         txt.delete(0,"end")
@@ -150,8 +151,7 @@ def pst():
         er.insert("end",e)
 #For deleting the previously stored data in the database table:
 def dlt():
-    ans=messagebox.askquestion("Warning","Deletes all the Stored Data",default="no",icon="warning")
-    print(ans)
+    ans=messagebox.askquestion("Warning","Permenantly deletes all the Stored Data",default="no",icon="warning")
     if ans=="yes":
         text.delete(0,"end")
         mysql = "TRUNCATE TABLE Words"
@@ -180,7 +180,7 @@ def abt():
     w.pack(pady=10)
     c=Label(win,text='Created on "20th of October 2020"',font=("Arial",15))
     c.pack()
-    b=Label(win,text=("Created by 1.Reyaz \n \t   2.Mallikarjun \n          3.Bavish"),font=("Arial",10))
+    b=Label(win,text=("Created by 1.Sk.Md Reyaz \n \t   2.G.Mallikarjun \n          3.K.Bavish"),font=("Arial",10))
     b.pack()
 #For making the window into Fullscreen mode:
 def clf():
@@ -203,7 +203,7 @@ f2=Menu(mb,tearoff=False,bg="#CECCBE",fg="#000000")
 mb.add_cascade(label="Edit",menu=f2)
 #To add list of commands to the menu button
 f2.add_command(label="Copy",command=cpy)
-f2.add_command(label="Paste",command=pst)
+f2.add_command(label="Save",command=pst)
 #To create a new menu button "View" in the toplevel menu
 f3=Menu(mb,tearoff=False,bg="#CECCBE",fg="#000000")
 mb.add_cascade(label="View",menu=f3)
@@ -241,9 +241,9 @@ lf=Label(f,text="Welcome To Translator",bg="#4c5f7a",fg="#001f3f",font="Arial 15
 lf.pack()
 c=Frame(root,bg="#4c5f7a",borderwidth=8,relief=GROOVE)                                      #To create a frame named c in the root window, GROOVE is used to give styling to the frame
 c.pack(side=LEFT,fill=Y,padx=5)
-btp=Button(c,text="Paste",font="Arial 10 bold",bg="#FFCCFF",command=pst)                    #To create a button for inserting the copied text into the listbox and in the file
+btp=Button(c,text="Save",font="Arial 10 bold",bg="#FFCCFF",command=pst)                    #To create a button for inserting the copied text into the listbox and in the file
 btp.pack(side=BOTTOM,fill=X,pady=1)
-cl=Label(c,text="Copied Text:",fg="black",bg="#4c5f7a",font=("Arial",15,"bold"))            #To create a label above the listbox
+cl=Label(c,text="Saved Data:",fg="black",bg="#4c5f7a",font=("Arial",15,"bold"))            #To create a label above the listbox
 cl.pack()
 sx=Scrollbar(c,orient=HORIZONTAL)                       #To create a horizontal scroll bar xview
 sx.pack(side=BOTTOM,fill=X)
@@ -288,4 +288,4 @@ erl.pack(side=LEFT)
 er=Listbox(c4,height=1,width=30)            #To create a listbox in which the errors will be displayed
 er.pack(side=LEFT)
 root.protocol("WM_DELETE_WINDOW",ext)               #Protocol method to get alert while closing the window
-root.mainloop()                                    
+root.mainloop()                                     #To run the application and process the event as long as the windows is not closed.
