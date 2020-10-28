@@ -16,7 +16,7 @@ en=StringVar()
 i=IntVar()
 dt=StringVar()
 #Creating and accesing database:
-mydb=mysql.connector.connect(host="localhost",user="root",passwd="reyaz2727",database="translator")             #To connect program with database
+mydb=mysql.connector.connect(host="localhost",user="root",passwd="*******",database="translator")             #To connect program with database
 mycursor=mydb.cursor()                                                                                          #For accessing the database
 #mycursor.execute("create database Translator")                                                 #To create a new database
 #mycursor.execute("create table Words (Enteredtext varchar(500),Translatedtext varchar(500))")  #To create a table in the database with two columns
@@ -73,7 +73,7 @@ def cllk():
     f.config(bg="#4c5f7a")
     cl.config(bg="#4c5f7a",fg="#000000")
     c.config(bg="#4c5f7a")
-    text.config(bg="#4c5f7a")
+    text.config(bg="#4c5f7a",fg="#000000")
     btp.config(bg="#FFCCFF",fg="#000000")
     lf.config(bg="#4c5f7a",fg="#001f3f")
     f1.config(bg="#CECCBE",fg="#000000")
@@ -95,7 +95,7 @@ def cldk():
     f.config(bg="#2C3539")
     cl.config(bg="#2C3539",fg="white")
     c.config(bg="#2C3539")
-    text.config(bg="#2C3539")
+    text.config(bg="#2C3539",fg="#ffffff")
     btp.config(bg="#666666",fg="#FFFFFF")
     lf.config(bg="#2C3539",fg="#a0d2eb")
     f1.config(bg="#2B2B2B",fg="#CECCBE")
@@ -249,7 +249,7 @@ sx=Scrollbar(c,orient=HORIZONTAL)                       #To create a horizontal 
 sx.pack(side=BOTTOM,fill=X)
 sy=Scrollbar(c)                                         #To create a vertical scroll bar for yview
 sy.pack(side=RIGHT,fill=Y)
-text=Listbox(c,font="Arial 12",bg="#4c5f7a",width=15,height=30,xscrollcommand=sx.set,yscrollcommand=sy.set)     #To create a listbox in which the pasted text will appear,(.set) is used to set the scroll bar where we leave it
+text=Listbox(c,font="Arial 12",fg="#000000",bg="#4c5f7a",width=15,height=30,xscrollcommand=sx.set,yscrollcommand=sy.set)     #To create a listbox in which the pasted text will appear,(.set) is used to set the scroll bar where we leave it
 text.pack()
 sx.config(command=text.xview)                                           #To set the scrollbars command to xview
 sy.config(command=text.yview)                                           #To set the scrollbars command to yview
