@@ -1,4 +1,4 @@
-#Translator (Translates the text to English)
+#Translator (Translates the text from any language to English)
 #Created by Reyaz, Mallikarjun and Bavish
 #Importing the necessary packages
 import mysql.connector              #To import mysql.connnector for using database
