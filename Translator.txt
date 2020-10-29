@@ -16,7 +16,7 @@ en=StringVar()
 i=IntVar()
 dt=StringVar()
 #Creating and accesing database:
-mydb=mysql.connector.connect(host="localhost",user="root",passwd="*******",database="translator")             #To connect program with database
+mydb=mysql.connector.connect(host="localhost",user="root",passwd="reyaz2727",database="translator")             #To connect program with database
 mycursor=mydb.cursor()                                                                                          #For accessing the database
 #mycursor.execute("create database Translator")                                                 #To create a new database
 #mycursor.execute("create table Words (Enteredtext varchar(500),Translatedtext varchar(500))")  #To create a table in the database with two columns
@@ -129,10 +129,16 @@ def cla():
 def cpy():
     global cp,x,y
     try:
-        x=word
-        y=speech
-        cp=x+" = "+y+"\n"
-        return cp
+        word=en.get()
+        if word=="":
+            e="No word is entered"
+            er.delete(0,"end")
+            er.insert("end",e)
+        else:
+            x=word
+            y=speech
+            cp=x+" = "+y+"\n"
+            return cp
     except NameError:
         e="No word is entered/translated"
         er.delete(0,"end")
