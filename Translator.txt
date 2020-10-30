@@ -14,7 +14,6 @@ root.iconbitmap(r'2.ico')           #To set icon for the root window
 #Creating variables:
 en=StringVar()
 i=IntVar()
-dt=StringVar()
 #Creating and accesing database:
 mydb=mysql.connector.connect(host="localhost",user="root",passwd="******",database="translator")             #To connect program with database
 mycursor=mydb.cursor()                                                                                          #For accessing the database
@@ -48,7 +47,7 @@ def speak():
         sound = eng.getProperty("voices")       #To get the voices
         eng.setProperty("voice", sound[1].id)   #To set the voice to lady voice
         eng.say(speech)                         #To speak the translated text
-        eng.runAndWait()                        #
+        eng.runAndWait()                        
         er.delete(0,"end")                      #To delete the previous text in the Error box
     except NameError:                           #If the user donot translated the text
         e="No word is translated"
