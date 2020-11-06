@@ -194,8 +194,8 @@ def clf():
 def cle():
     root.attributes("-fullscreen",False)
 #For Creating menu buttons at the top:
-mb=Menu(root)                                           #To create a toplevel menu in the root window
-root.config(menu=mb)                                    #To display the toplevel menu in the root window
+mb=Menu(root)                                     
+root.config(menu=mb)                                 
 #To create a new menu button "File" in the toplevel menu
 f1=Menu(mb,tearoff=False,bg="#CECCBE",fg="#000000")             #tearoff is used to remove the dashed line in the list of commands
 mb.add_cascade(label="File",menu=f1)
@@ -293,4 +293,4 @@ erl.pack(side=LEFT)
 er=Listbox(c4,height=1,width=30)            #To create a listbox in which the errors will be displayed
 er.pack(side=LEFT)
 root.protocol("WM_DELETE_WINDOW",ext)               #Protocol method to get alert while closing the window
-root.mainloop()                                     #To run the application and process the event as long as the windows is not closed.
+root.mainloop()                                   
